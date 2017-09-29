@@ -44,7 +44,8 @@
                         if ('error' in response.data) {
                             this.error = response.data.error;
                         } else {
-                            this.$store.commit('search_results', response.data);
+                            this.$store.commit('search_results', response.data.data);
+                            this.$store.commit('search_meta', response.data.meta);
                             this.show_result = true;
                         }
                     }

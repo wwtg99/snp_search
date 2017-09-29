@@ -32,6 +32,7 @@ const store = new Vuex.Store({
     state: {
         search_term: '',
         results: [],
+        meta: [],
         show_types: []
     },
     mutations: {
@@ -40,6 +41,9 @@ const store = new Vuex.Store({
         },
         search_results (state, results) {
             state.results = results;
+        },
+        search_meta (state, meta) {
+            state.meta = meta;
         },
         show_types (state, types) {
             state.show_types = types;

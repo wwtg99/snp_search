@@ -35,4 +35,9 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
+    'elasticsearch' => [
+        'host' => env('ELASTICSEARCH_HOST'),
+        'index' => env('ELASTICSEARCH_INDEX'),
+    ],
+
 ];

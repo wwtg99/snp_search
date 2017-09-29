@@ -2,12 +2,12 @@
     <el-card class="box-card">
         <div slot="header" class="clearfix header">
             <span class="title">
-                <a v-if="result.link" href="result.link" target="_blank">{{ result.title }}</a>
-                <span v-else>{{ result.title }}</span>
+                <a v-if="result._link" href="result._link" target="_blank">{{ result._title }}</a>
+                <span v-else>{{ result._title }}</span>
             </span>
-            <span class="type" :class="result.type.toLowerCase()">{{ result.type }}</span>
+            <span class="type" :class="result._type.toLowerCase()">{{ result._label }}</span>
         </div>
-        <div class="content">{{ result.abstract }}</div>
+        <div class="content">{{ result._abstract }}</div>
     </el-card>
 </template>
 
