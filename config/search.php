@@ -31,7 +31,11 @@ return [
             },
             'abstract' => function ($data) {
                 return implode('',[$data['ancestral_allele'], '/', $data['minor_allele']]);
-            }
+            },
+            'link' => function ($data) {
+                return ['name'=>'Ensemble', 'link'=>'http://www.ensembl.org/Homo_sapiens/Variation/Explore?db=core;v=' . $data['name'] . ';vdb=variation'];
+            },
+            'viewable' => null
         ]
     ]
 ];

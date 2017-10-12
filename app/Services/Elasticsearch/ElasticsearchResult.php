@@ -148,6 +148,15 @@ class ElasticsearchResult
                         $hit['_link'] = $link;
                     }
                 }
+                //hide fields
+                $viewable = isset($conf['viewable']) ? $conf['viewable'] : null;
+                if ($viewable && is_array($viewable)) {
+                    foreach ($source as $k => $v) {
+                        if (!in_array($k, $viewable)) {
+                            unset($hit['_source'][$k]);
+                        }
+                    }
+                }
             }
         }
         return $hit;

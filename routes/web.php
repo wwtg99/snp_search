@@ -11,8 +11,6 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
+Route::view('/', 'home', ['title'=>'Home']);
 Route::view('/home', 'home', ['title'=>'Home']);
+Route::view('/search', 'home', ['title'=>'Home']);

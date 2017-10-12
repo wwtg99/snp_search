@@ -62,8 +62,6 @@
         },
         created() {
             this.show_types = this.getAllTypes();
-            console.log(this.show_types);
-            console.log(this.all_types);
         }
     }
 </script>
