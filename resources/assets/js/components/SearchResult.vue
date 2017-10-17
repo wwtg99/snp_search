@@ -19,11 +19,12 @@
         },
         methods: {
             show_detail() {
+                //TODO
                 const h = this.$createElement;
                 let msg = this.parseSource(this.result._source);
                 let links = this.parseLinks(this.result._link);
                 this.$alert(h('div', null, [
-                    h('pre', null, msg),
+                    h('pre', {'class': 'flow'}, msg),
                     h('ul', null, links)
                 ]), this.result._title);
             },
@@ -52,6 +53,9 @@
                 } else if (source instanceof Object) {
                     let d = [];
                     for (let i in source) {
+                        if (i.substr(0, 1) == '@') {
+                            continue;
+                        }
                         d.push(h('div', null, [
                             h('label', null, ' '.repeat(indent) + i + ': '),
                             this.parseSource(source[i], indent + 2)
@@ -103,6 +107,10 @@
         line-height: 0.6em;
         font-size: 14px;
     }
+    .flow {
+        overflow: auto;
+        max-height: 400px;
+    }
 
     /*type class*/
     .dbsnp {
@@ -112,5 +120,9 @@
     .ensemble {
         color: #ffffff;
         background: #2b542c;
+    }
+    .pharmgkb {
+        color: #ffffff;
+        background: #497de3;
     }
 </style>

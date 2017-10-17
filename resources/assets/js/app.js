@@ -27,6 +27,7 @@ Vue.component('searchbox', require('./components/SearchBox.vue'));
 Vue.component('search-home', require('./components/SearchHome.vue'));
 Vue.component('search-list', require('./components/SearchList.vue'));
 Vue.component('search-result', require('./components/SearchResult.vue'));
+Vue.component('pharmgkb-view', require('./components/PharmgkbView.vue'));
 
 const store = new Vuex.Store({
     state: {

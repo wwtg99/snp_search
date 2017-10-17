@@ -36,6 +36,15 @@ return [
                 return ['name'=>'Ensemble', 'link'=>'http://www.ensembl.org/Homo_sapiens/Variation/Explore?db=core;v=' . $data['name'] . ';vdb=variation'];
             },
             'viewable' => null
+        ],
+        'pharmgkb' => [
+            'label' => 'PharmGKB',
+            'title' => function ($data) {
+                return $data['name'];
+            },
+            'abstract' => function ($data) {
+                return implode(' ', [$data['accessionId'], $data['gene'], $data['loci']]);
+            }
         ]
     ]
 ];
