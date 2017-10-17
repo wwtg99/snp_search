@@ -29,6 +29,9 @@ class ViewFactory
         $view = isset($conf['view']) ? $conf['view'] : null;
         $rf = new \ReflectionClass("App\Models\\$model");
         $ins = $rf->getMethod('find')->invokeArgs(null, [$id, $index, $type, $options]);
+        if (!$ins) {
+            return null;
+        }
         return ['view'=>$view, 'model'=>$ins->toArray(), 'title'=>isset($conf['title']) ? $conf['title'] : ''];
     }
 }

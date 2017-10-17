@@ -37,6 +37,15 @@ return [
             },
             'viewable' => null
         ],
+        'deafnessvdb' => [
+            'label' => 'DeafnessVariant',
+            'title' => function ($data) {
+                return $data['dbsnp'];
+            },
+            'abstract' => function ($data) {
+                return implode(' ', [$data['variation'], $data['gene'], $data['pathogenicity']]);
+            }
+        ],
         'pharmgkb' => [
             'label' => 'PharmGKB',
             'title' => function ($data) {

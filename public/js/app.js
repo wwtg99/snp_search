@@ -11083,98 +11083,6 @@ function toComment(sourceMap) {
 
 /***/ }),
 /* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-function _broadcast(componentName, eventName, params) {
-  this.$children.forEach(function (child) {
-    var name = child.$options.componentName;
-
-    if (name === componentName) {
-      child.$emit.apply(child, [eventName].concat(params));
-    } else {
-      _broadcast.apply(child, [componentName, eventName].concat([params]));
-    }
-  });
-}
-exports.default = {
-  methods: {
-    dispatch: function dispatch(componentName, eventName, params) {
-      var parent = this.$parent || this.$root;
-      var name = parent.$options.componentName;
-
-      while (parent && (!name || name !== componentName)) {
-        parent = parent.$parent;
-
-        if (parent) {
-          name = parent.$options.componentName;
-        }
-      }
-      if (parent) {
-        parent.$emit.apply(parent, [eventName].concat(params));
-      }
-    },
-    broadcast: function broadcast(componentName, eventName, params) {
-      _broadcast.call(this, componentName, eventName, params);
-    }
-  }
-};
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-exports.__esModule = true;
-exports.hasOwn = hasOwn;
-exports.toObject = toObject;
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-function hasOwn(obj, key) {
-  return hasOwnProperty.call(obj, key);
-};
-
-function extend(to, _from) {
-  for (var key in _from) {
-    to[key] = _from[key];
-  }
-  return to;
-};
-
-function toObject(arr) {
-  var res = {};
-  for (var i = 0; i < arr.length; i++) {
-    if (arr[i]) {
-      extend(res, arr[i]);
-    }
-  }
-  return res;
-};
-
-var getValueByPath = exports.getValueByPath = function getValueByPath(object, prop) {
-  prop = prop || '';
-  var paths = prop.split('.');
-  var current = object;
-  var result = null;
-  for (var i = 0, j = paths.length; i < j; i++) {
-    var path = paths[i];
-    if (!current) break;
-
-    if (i === j - 1) {
-      result = current[path];
-      break;
-    }
-    current = current[path];
-  }
-  return result;
-};
-
-/***/ }),
-/* 8 */
 /***/ (function(module, exports) {
 
 /* globals __VUE_SSR_CONTEXT__ */
@@ -11269,6 +11177,98 @@ module.exports = function normalizeComponent (
   }
 }
 
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+function _broadcast(componentName, eventName, params) {
+  this.$children.forEach(function (child) {
+    var name = child.$options.componentName;
+
+    if (name === componentName) {
+      child.$emit.apply(child, [eventName].concat(params));
+    } else {
+      _broadcast.apply(child, [componentName, eventName].concat([params]));
+    }
+  });
+}
+exports.default = {
+  methods: {
+    dispatch: function dispatch(componentName, eventName, params) {
+      var parent = this.$parent || this.$root;
+      var name = parent.$options.componentName;
+
+      while (parent && (!name || name !== componentName)) {
+        parent = parent.$parent;
+
+        if (parent) {
+          name = parent.$options.componentName;
+        }
+      }
+      if (parent) {
+        parent.$emit.apply(parent, [eventName].concat(params));
+      }
+    },
+    broadcast: function broadcast(componentName, eventName, params) {
+      _broadcast.call(this, componentName, eventName, params);
+    }
+  }
+};
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+exports.__esModule = true;
+exports.hasOwn = hasOwn;
+exports.toObject = toObject;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+function hasOwn(obj, key) {
+  return hasOwnProperty.call(obj, key);
+};
+
+function extend(to, _from) {
+  for (var key in _from) {
+    to[key] = _from[key];
+  }
+  return to;
+};
+
+function toObject(arr) {
+  var res = {};
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i]) {
+      extend(res, arr[i]);
+    }
+  }
+  return res;
+};
+
+var getValueByPath = exports.getValueByPath = function getValueByPath(object, prop) {
+  prop = prop || '';
+  var paths = prop.split('.');
+  var current = object;
+  var result = null;
+  for (var i = 0, j = paths.length; i < j; i++) {
+    var path = paths[i];
+    if (!current) break;
+
+    if (i === j - 1) {
+      result = current[path];
+      break;
+    }
+    current = current[path];
+  }
+  return result;
+};
 
 /***/ }),
 /* 9 */
@@ -11662,7 +11662,7 @@ module.exports =
 /***/ 14:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(7);
 
 /***/ },
 
@@ -13211,7 +13211,7 @@ module.exports =
 /***/ 219:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(7);
+	module.exports = __webpack_require__(8);
 
 /***/ },
 
@@ -13985,7 +13985,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 exports.isVNode = isVNode;
 exports.getFirstComponentChild = getFirstComponentChild;
 
-var _util = __webpack_require__(7);
+var _util = __webpack_require__(8);
 
 function isVNode(node) {
   return (typeof node === 'undefined' ? 'undefined' : _typeof(node)) === 'object' && (0, _util.hasOwn)(node, 'componentOptions');
@@ -14666,7 +14666,7 @@ module.exports = Cancel;
 /***/ (function(module, exports, __webpack_require__) {
 
 __webpack_require__(36);
-module.exports = __webpack_require__(141);
+module.exports = __webpack_require__(146);
 
 
 /***/ }),
@@ -14712,6 +14712,7 @@ Vue.component('search-home', __webpack_require__(120));
 Vue.component('search-list', __webpack_require__(126));
 Vue.component('search-result', __webpack_require__(131));
 Vue.component('pharmgkb-view', __webpack_require__(136));
+Vue.component('deafnessvdb-view', __webpack_require__(141));
 
 var store = new __WEBPACK_IMPORTED_MODULE_0_vuex__["a" /* default */].Store({
     state: {
@@ -17100,7 +17101,7 @@ module.exports =
 /* 15 */
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(7);
 
 /***/ },
 /* 16 */
@@ -22288,7 +22289,7 @@ module.exports =
 /* 107 */
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(7);
+	module.exports = __webpack_require__(8);
 
 /***/ },
 /* 108 */
@@ -43932,7 +43933,7 @@ module.exports =
 /***/ 14:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(7);
 
 /***/ },
 
@@ -44191,7 +44192,7 @@ module.exports =
 /***/ 219:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(7);
+	module.exports = __webpack_require__(8);
 
 /***/ },
 
@@ -47083,7 +47084,7 @@ exports.default = function (Vue) {
   return template;
 };
 
-var _util = __webpack_require__(7);
+var _util = __webpack_require__(8);
 
 var RE_NARGS = /(%|)\{([0-9a-zA-Z_]+)\}/g;
 /**
@@ -47236,7 +47237,7 @@ module.exports =
 /***/ 14:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(7);
 
 /***/ },
 
@@ -47468,7 +47469,7 @@ module.exports =
 /***/ 219:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(7);
+	module.exports = __webpack_require__(8);
 
 /***/ },
 
@@ -48256,7 +48257,7 @@ module.exports =
 /***/ 14:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(7);
 
 /***/ },
 
@@ -49021,7 +49022,7 @@ module.exports =
 /***/ 14:
 /***/ function(module, exports) {
 
-	module.exports = __webpack_require__(6);
+	module.exports = __webpack_require__(7);
 
 /***/ },
 
@@ -82864,7 +82865,7 @@ module.exports = function spread(callback) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(112)
 /* template */
@@ -82986,7 +82987,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(115)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(118)
 /* template */
@@ -83185,7 +83186,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(121)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(123)
 /* template */
@@ -83476,7 +83477,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(127)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(129)
 /* template */
@@ -83733,7 +83734,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(132)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(134)
 /* template */
@@ -83809,7 +83810,7 @@ exports = module.exports = __webpack_require__(5)(undefined);
 
 
 // module
-exports.push([module.i, "\n.box-card[data-v-d003dc2a] {\n    margin-bottom: 20px;\n}\n.header[data-v-d003dc2a] {\n    line-height: 0.8em;\n}\n.header .title[data-v-d003dc2a] {\n    font-size: 18px;\n    font-weight: 600;\n}\n.header .type[data-v-d003dc2a] {\n    float: right;\n    font-size: 14px;\n    border: 1px solid #999999;\n    padding: 5px;\n    border-radius: 5px;\n}\n.content[data-v-d003dc2a] {\n    line-height: 0.6em;\n    font-size: 14px;\n}\n.flow[data-v-d003dc2a] {\n    overflow: auto;\n    max-height: 400px;\n}\n\n/*type class*/\n.dbsnp[data-v-d003dc2a] {\n    color: #ffffff;\n    background: #2a88bd;\n}\n.ensemble[data-v-d003dc2a] {\n    color: #ffffff;\n    background: #2b542c;\n}\n.pharmgkb[data-v-d003dc2a] {\n    color: #ffffff;\n    background: #497de3;\n}\n", ""]);
+exports.push([module.i, "\n.box-card[data-v-d003dc2a] {\n    margin-bottom: 20px;\n}\n.header[data-v-d003dc2a] {\n    line-height: 0.8em;\n}\n.header .title[data-v-d003dc2a] {\n    font-size: 18px;\n    font-weight: 600;\n}\n.header .type[data-v-d003dc2a] {\n    float: right;\n    font-size: 14px;\n    border: 1px solid #999999;\n    padding: 5px;\n    border-radius: 5px;\n}\n.content[data-v-d003dc2a] {\n    line-height: 0.6em;\n    font-size: 14px;\n}\n.flow[data-v-d003dc2a] {\n    overflow: auto;\n    max-height: 400px;\n}\n\n/*type class*/\n.dbsnp[data-v-d003dc2a] {\n    color: #ffffff;\n    background: #2a88bd;\n}\n.ensemble[data-v-d003dc2a] {\n    color: #ffffff;\n    background: #2b542c;\n}\n.deafnessvdb[data-v-d003dc2a] {\n    color: #ffffff;\n    background: #CC0000;\n}\n.pharmgkb[data-v-d003dc2a] {\n    color: #ffffff;\n    background: #497de3;\n}\n", ""]);
 
 // exports
 
@@ -84029,7 +84030,7 @@ function injectStyle (ssrContext) {
   if (disposed) return
   __webpack_require__(137)
 }
-var normalizeComponent = __webpack_require__(8)
+var normalizeComponent = __webpack_require__(6)
 /* script */
 var __vue_script__ = __webpack_require__(139)
 /* template */
@@ -84370,6 +84371,1004 @@ if (false) {
 
 /***/ }),
 /* 141 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(142)
+}
+var normalizeComponent = __webpack_require__(6)
+/* script */
+var __vue_script__ = __webpack_require__(144)
+/* template */
+var __vue_template__ = __webpack_require__(145)
+/* styles */
+var __vue_styles__ = injectStyle
+/* scopeId */
+var __vue_scopeId__ = "data-v-28575c74"
+/* moduleIdentifier (server only) */
+var __vue_module_identifier__ = null
+var Component = normalizeComponent(
+  __vue_script__,
+  __vue_template__,
+  __vue_styles__,
+  __vue_scopeId__,
+  __vue_module_identifier__
+)
+Component.options.__file = "resources\\assets\\js\\components\\DeafnessvdbView.vue"
+if (Component.esModule && Object.keys(Component.esModule).some(function (key) {return key !== "default" && key.substr(0, 2) !== "__"})) {console.error("named exports are not supported in *.vue files.")}
+if (Component.options.functional) {console.error("[vue-loader] DeafnessvdbView.vue: functional components are not supported with templates, they should use render functions.")}
+
+/* hot reload */
+if (false) {(function () {
+  var hotAPI = require("vue-loader/node_modules/vue-hot-reload-api")
+  hotAPI.install(require("vue"), false)
+  if (!hotAPI.compatible) return
+  module.hot.accept()
+  if (!module.hot.data) {
+    hotAPI.createRecord("data-v-28575c74", Component.options)
+  } else {
+    hotAPI.reload("data-v-28575c74", Component.options)
+  }
+  module.hot.dispose(function (data) {
+    disposed = true
+  })
+})()}
+
+module.exports = Component.exports
+
+
+/***/ }),
+/* 142 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(143);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(9)("89f01ac2", content, false);
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/.0.28.7@css-loader/index.js!../../../../node_modules/.13.0.5@vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28575c74\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/.13.0.5@vue-loader/lib/selector.js?type=styles&index=0!./DeafnessvdbView.vue", function() {
+     var newContent = require("!!../../../../node_modules/.0.28.7@css-loader/index.js!../../../../node_modules/.13.0.5@vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-28575c74\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/.13.0.5@vue-loader/lib/selector.js?type=styles&index=0!./DeafnessvdbView.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 143 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(5)(undefined);
+// imports
+
+
+// module
+exports.push([module.i, "\n.title-row[data-v-28575c74] {\n    padding: 0 0 20px 0;\n}\n.freq_class[data-v-28575c74] {\n    padding: 0 0 10px 0;\n    color: #999999;\n}\n.block[data-v-28575c74] {\n    padding: 10px 0;\n}\n.block .title[data-v-28575c74] {\n    font-weight: bold;\n    font-size: 16px;\n    padding-top: 10px;\n}\n.freq_group[data-v-28575c74] {\n    padding: 15px 0 0 0;\n}\n.freq_block[data-v-28575c74] {\n    padding: 0 5px;\n}\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 144 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {};
+    },
+
+    props: ['vdata'],
+    methods: {},
+    created: function created() {
+        console.log(this.vdata);
+    }
+});
+
+/***/ }),
+/* 145 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    { staticClass: "content" },
+    [
+      _c(
+        "el-row",
+        { staticClass: "title-row" },
+        [
+          _c("el-col", { attrs: { span: 18, offset: 3 } }, [
+            _c("h1", [
+              _vm._v(
+                _vm._s(_vm.vdata.dbsnp) + " (" + _vm._s(_vm.vdata.gene) + ")"
+              )
+            ])
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-row",
+        [
+          _c("el-col", { attrs: { span: 9, offset: 3 } }, [
+            _c("div", [_c("label", [_vm._v("Variation")])]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.vdata.variation))])
+          ]),
+          _vm._v(" "),
+          _c("el-col", { attrs: { span: 9 } }, [
+            _c("div", [_c("label", [_vm._v("Gene")])]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.vdata.gene))])
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-row",
+        [
+          _c("el-col", { attrs: { span: 9, offset: 3 } }, [
+            _c("div", [_c("label", [_vm._v("HGVS Nucleotide Change")])]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.vdata.hgvs_nucleotide_change))])
+          ]),
+          _vm._v(" "),
+          _c("el-col", { attrs: { span: 9 } }, [
+            _c("div", [_c("label", [_vm._v("Variantlocale")])]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.vdata.variantlocale))])
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _c(
+        "el-row",
+        [
+          _c("el-col", { attrs: { span: 9, offset: 3 } }, [
+            _c("div", [_c("label", [_vm._v("Pathogenicity")])]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.vdata.pathogenicity))])
+          ]),
+          _vm._v(" "),
+          _c("el-col", { attrs: { span: 9 } }, [
+            _c("div", [_c("label", [_vm._v("comments")])]),
+            _vm._v(" "),
+            _c("p", [_vm._v(_vm._s(_vm.vdata.comments))])
+          ])
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.vdata.sift_pred
+        ? _c(
+            "div",
+            { staticClass: "block" },
+            [
+              _c(
+                "el-row",
+                [
+                  _c("el-col", { attrs: { span: 6, offset: 3 } }, [
+                    _c("p", { staticClass: "title" }, [
+                      _vm._v("IN SILICO COMPUTATIONAL")
+                    ])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-row",
+                [
+                  _c("el-col", { attrs: { span: 18, offset: 3 } }, [
+                    _c("table", { attrs: { width: "100%" } }, [
+                      _c("thead", [
+                        _c("tr", [
+                          _c("th", [_vm._v("SIFT")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("Polyphen-2")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("LRT")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("MutationTaster")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("PhyloP")]),
+                          _vm._v(" "),
+                          _c("th", [_vm._v("GERP++")])
+                        ])
+                      ]),
+                      _vm._v(" "),
+                      _c("tbody", [
+                        _c("tr", [
+                          _c("td", [_vm._v(_vm._s(_vm.vdata.sift_pred))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.vdata.polyphen2_pred))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.vdata.lrt_pred))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(_vm._s(_vm.vdata.mutationtaster_pred))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.vdata.phylop_pred))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.vdata.gerp_pred))])
+                        ]),
+                        _vm._v(" "),
+                        _c("tr", [
+                          _c("td", [_vm._v(_vm._s(_vm.vdata.sift_score))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.vdata.polyphen2_score))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.vdata.lrt_score))]),
+                          _vm._v(" "),
+                          _c("td", [
+                            _vm._v(_vm._s(_vm.vdata.mutationtaster_score))
+                          ]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.vdata.phylop_score))]),
+                          _vm._v(" "),
+                          _c("td", [_vm._v(_vm._s(_vm.vdata.gerp_rs))])
+                        ])
+                      ])
+                    ])
+                  ])
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _c(
+        "div",
+        { staticClass: "block" },
+        [
+          _c(
+            "el-row",
+            [
+              _c("el-col", { attrs: { span: 6, offset: 3 } }, [
+                _c("p", { staticClass: "title" }, [
+                  _vm._v("VARIANT FREQUENCIES")
+                ])
+              ])
+            ],
+            1
+          )
+        ],
+        1
+      ),
+      _vm._v(" "),
+      _vm.vdata.evs_all_af
+        ? _c(
+            "div",
+            { staticClass: "block" },
+            [
+              _c(
+                "el-row",
+                [
+                  _c("el-col", { attrs: { span: 6, offset: 3 } }, [
+                    _c("label", { staticClass: "freq_class" }, [
+                      _vm._v("Exome Variant Server")
+                    ])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-row",
+                [
+                  _c(
+                    "el-col",
+                    {
+                      staticClass: "freq_block",
+                      attrs: { span: 6, offset: 3 }
+                    },
+                    [
+                      _c("label", [_vm._v("European-American")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.evs_ea_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.evs_ea_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.evs_ea_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("African-American")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.evs_aa_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.evs_aa_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.evs_aa_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("All populations")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.evs_all_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.evs_all_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.evs_all_af)
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.vdata.tg_all_af
+        ? _c(
+            "div",
+            { staticClass: "block" },
+            [
+              _c(
+                "el-row",
+                [
+                  _c("el-col", { attrs: { span: 6, offset: 3 } }, [
+                    _c("label", { staticClass: "freq_class" }, [
+                      _vm._v("1000 Genomes")
+                    ])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-row",
+                [
+                  _c(
+                    "el-col",
+                    {
+                      staticClass: "freq_block",
+                      attrs: { span: 6, offset: 3 }
+                    },
+                    [
+                      _c("label", [_vm._v("African")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.tg_afr_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.tg_afr_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.tg_afr_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("American")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.tg_amr_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.tg_amr_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.tg_amr_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("European")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.tg_eur_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.tg_eur_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.tg_eur_af)
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-row",
+                [
+                  _c(
+                    "el-col",
+                    {
+                      staticClass: "freq_block",
+                      attrs: { span: 6, offset: 3 }
+                    },
+                    [
+                      _c("label", [_vm._v("East Asian")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.tg_eas_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.tg_eas_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.tg_eas_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("South Asian")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.tg_sas_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.tg_sas_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.tg_sas_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("All populations")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.tg_all_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.tg_all_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.tg_all_af)
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
+      _vm._v(" "),
+      _vm.vdata.exac_all_af
+        ? _c(
+            "div",
+            { staticClass: "block" },
+            [
+              _c(
+                "el-row",
+                [
+                  _c("el-col", { attrs: { span: 6, offset: 3 } }, [
+                    _c("label", { staticClass: "freq_class" }, [_vm._v("ExAC")])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-row",
+                [
+                  _c(
+                    "el-col",
+                    {
+                      staticClass: "freq_block",
+                      attrs: { span: 6, offset: 3 }
+                    },
+                    [
+                      _c("label", [_vm._v("African")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.exac_afr_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.exac_afr_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.exac_afr_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("American (Latino)")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.exac_amr_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.exac_amr_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.exac_amr_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("European (Finnish)")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.exac_fin_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.exac_fin_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.exac_fin_af)
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-row",
+                [
+                  _c(
+                    "el-col",
+                    {
+                      staticClass: "freq_block",
+                      attrs: { span: 6, offset: 3 }
+                    },
+                    [
+                      _c("label", [_vm._v("European (non-Finnish)")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.exac_nfe_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.exac_nfe_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.exac_nfe_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("East Asian")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.exac_eas_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.exac_eas_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.exac_eas_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("South Asian")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.exac_sas_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.exac_sas_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.exac_sas_af)
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-row",
+                [
+                  _c(
+                    "el-col",
+                    {
+                      staticClass: "freq_block",
+                      attrs: { span: 6, offset: 3 }
+                    },
+                    [
+                      _c("label", [_vm._v("Other")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.exac_oth_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.exac_oth_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.exac_oth_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("All populations")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.exac_all_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.exac_all_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.exac_all_af)
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e()
+    ],
+    1
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+     require("vue-loader/node_modules/vue-hot-reload-api").rerender("data-v-28575c74", module.exports)
+  }
+}
+
+/***/ }),
+/* 146 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin

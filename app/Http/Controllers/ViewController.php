@@ -11,7 +11,7 @@ class ViewController extends Controller
     {
         $options = $request->input('options', []);
         if (is_numeric($id)) {
-            $id = (float)$id;
+//            $id = (float)$id;
         }
         $viewer = ViewFactory::getViewer($index, $type, $id, $options);
         if (!$viewer) {

@@ -121,6 +121,10 @@
         color: #ffffff;
         background: #2b542c;
     }
+    .deafnessvdb {
+        color: #ffffff;
+        background: #CC0000;
+    }
     .pharmgkb {
         color: #ffffff;
         background: #497de3;
