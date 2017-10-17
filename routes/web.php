@@ -16,7 +16,7 @@ Route::view('/home', 'home', ['title'=>'Home']);
 Route::view('/search', 'home', ['title'=>'Home']);
 Route::get('/view/{index}/{type}/{id}', 'ViewController@view');
 
-Route::get('/a', function() {
-    $d = \App\Models\MongoModel::find(1448615589, 'testdb', 'pharmgkb');
-    dump($d);
-});
+//Route::get('/a', function() {
+//    $d = \App\Models\MongoModel::find('rs587776435', 'testdb', 'ensemble');
+//    dump($d);
+//});

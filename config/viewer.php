@@ -17,5 +17,10 @@ return [
             'model' => 'MongoModel',
             'view' => 'viewers.pharmgkb',
         ],
+        'deafnessvdb' => [
+            'title' => 'Deafness Variant',
+            'model' => 'MongoModel',
+            'view' => 'viewers.deafnessvdb',
+        ],
     ],
 ];
