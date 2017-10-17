@@ -83842,6 +83842,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         show_detail: function show_detail() {
             //TODO
+            return window.open('/view/' + this.result._index + '/' + this.result._type + '/' + this.result._id);
             var h = this.$createElement;
             var msg = this.parseSource(this.result._source);
             var links = this.parseLinks(this.result._link);
@@ -84654,6 +84655,47 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     data: function data() {
@@ -84661,10 +84703,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     },
 
     props: ['vdata'],
-    methods: {},
-    created: function created() {
-        console.log(this.vdata);
-    }
+    methods: {}
 });
 
 /***/ }),
@@ -84847,6 +84886,220 @@ var render = function() {
         ],
         1
       ),
+      _vm._v(" "),
+      _vm.vdata.otoscope_all_af
+        ? _c(
+            "div",
+            { staticClass: "block" },
+            [
+              _c(
+                "el-row",
+                [
+                  _c("el-col", { attrs: { span: 6, offset: 3 } }, [
+                    _c("label", { staticClass: "freq_class" }, [
+                      _vm._v("OtoSCOPE"),
+                      _c("sup", [_vm._v("TM")])
+                    ])
+                  ])
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-row",
+                [
+                  _c(
+                    "el-col",
+                    {
+                      staticClass: "freq_block",
+                      attrs: { span: 6, offset: 3 }
+                    },
+                    [
+                      _c("label", [
+                        _vm._v("Ashkenazi Jewish living in New York")
+                      ]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.otoscope_aj_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.otoscope_aj_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.otoscope_aj_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("Colombian")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.otoscope_co_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.otoscope_co_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.otoscope_co_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("Japanese")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.otoscope_jp_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.otoscope_jp_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.otoscope_jp_af)
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-row",
+                [
+                  _c(
+                    "el-col",
+                    {
+                      staticClass: "freq_block",
+                      attrs: { span: 6, offset: 3 }
+                    },
+                    [
+                      _c("label", [
+                        _vm._v("European-Americans from Iowa, USA")
+                      ]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.otoscope_us_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.otoscope_us_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.otoscope_us_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("Spanish from Almería and Granada")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.otoscope_es_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.otoscope_es_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.otoscope_es_af)
+                        }
+                      })
+                    ],
+                    1
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "el-col",
+                    { staticClass: "freq_block", attrs: { span: 6 } },
+                    [
+                      _c("label", [_vm._v("Turkish")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.otoscope_tr_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.otoscope_tr_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.otoscope_tr_af)
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              ),
+              _vm._v(" "),
+              _c(
+                "el-row",
+                [
+                  _c(
+                    "el-col",
+                    {
+                      staticClass: "freq_block",
+                      attrs: { span: 6, offset: 3 }
+                    },
+                    [
+                      _c("label", [_vm._v("All populations")]),
+                      _vm._v(
+                        " " +
+                          _vm._s(_vm.vdata.otoscope_all_ac) +
+                          " / " +
+                          _vm._s(_vm.vdata.otoscope_all_an) +
+                          "\n                "
+                      ),
+                      _c("el-progress", {
+                        attrs: {
+                          "text-inside": true,
+                          "stroke-width": 18,
+                          percentage: Number(_vm.vdata.otoscope_all_af)
+                        }
+                      })
+                    ],
+                    1
+                  )
+                ],
+                1
+              )
+            ],
+            1
+          )
+        : _vm._e(),
       _vm._v(" "),
       _vm.vdata.evs_all_af
         ? _c(

@@ -83,6 +83,47 @@
                 </el-col>
             </el-row>
         </div>
+        <div v-if="vdata.otoscope_all_af" class="block">
+            <el-row>
+                <el-col :span="6" :offset="3">
+                    <label class="freq_class">OtoSCOPE<sup>TM</sup></label>
+                </el-col>
+            </el-row>
+            <el-row>
+                <el-col :span="6" :offset="3" class="freq_block">
+                    <label>Ashkenazi Jewish living in New York</label> {{ vdata.otoscope_aj_ac }} / {{ vdata.otoscope_aj_an }}
+                    <el-progress :text-inside="true" :stroke-width="18" :percentage="Number(vdata.otoscope_aj_af)"></el-progress>
+                </el-col>
+                <el-col :span="6" class="freq_block">
+                    <label>Colombian</label> {{ vdata.otoscope_co_ac }} / {{ vdata.otoscope_co_an }}
+                    <el-progress :text-inside="true" :stroke-width="18" :percentage="Number(vdata.otoscope_co_af)"></el-progress>
+                </el-col>
+                <el-col :span="6" class="freq_block">
+                    <label>Japanese</label> {{ vdata.otoscope_jp_ac }} / {{ vdata.otoscope_jp_an }}
+                    <el-progress :text-inside="true" :stroke-width="18" :percentage="Number(vdata.otoscope_jp_af)"></el-progress>
+                </el-col>
+            </el-row>
+            <el-row>
+                <el-col :span="6" :offset="3" class="freq_block">
+                    <label>European-Americans from Iowa, USA</label> {{ vdata.otoscope_us_ac }} / {{ vdata.otoscope_us_an }}
+                    <el-progress :text-inside="true" :stroke-width="18" :percentage="Number(vdata.otoscope_us_af)"></el-progress>
+                </el-col>
+                <el-col :span="6" class="freq_block">
+                    <label>Spanish from Almería and Granada</label> {{ vdata.otoscope_es_ac }} / {{ vdata.otoscope_es_an }}
+                    <el-progress :text-inside="true" :stroke-width="18" :percentage="Number(vdata.otoscope_es_af)"></el-progress>
+                </el-col>
+                <el-col :span="6" class="freq_block">
+                    <label>Turkish</label> {{ vdata.otoscope_tr_ac }} / {{ vdata.otoscope_tr_an }}
+                    <el-progress :text-inside="true" :stroke-width="18" :percentage="Number(vdata.otoscope_tr_af)"></el-progress>
+                </el-col>
+            </el-row>
+            <el-row>
+                <el-col :span="6" :offset="3" class="freq_block">
+                    <label>All populations</label> {{ vdata.otoscope_all_ac }} / {{ vdata.otoscope_all_an }}
+                    <el-progress :text-inside="true" :stroke-width="18" :percentage="Number(vdata.otoscope_all_af)"></el-progress>
+                </el-col>
+            </el-row>
+        </div>
         <div v-if="vdata.evs_all_af" class="block">
             <el-row>
                 <el-col :span="6" :offset="3">
@@ -197,9 +238,6 @@
         props: ['vdata'],
         methods: {
 
-        },
-        created() {
-            console.log(this.vdata);
         }
     }
 </script>

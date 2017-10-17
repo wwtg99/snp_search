@@ -20,6 +20,7 @@
         methods: {
             show_detail() {
                 //TODO
+                return window.open('/view/' + this.result._index + '/' + this.result._type + '/' + this.result._id);
                 const h = this.$createElement;
                 let msg = this.parseSource(this.result._source);
                 let links = this.parseLinks(this.result._link);
