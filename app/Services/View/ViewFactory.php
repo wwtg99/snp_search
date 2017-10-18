@@ -27,6 +27,8 @@ class ViewFactory
         }
         $model = isset($conf['model']) ? $conf['model'] : null;
         $view = isset($conf['view']) ? $conf['view'] : null;
+        $opt = isset($conf['options']) ? $conf['options'] : [];
+        $options = array_merge($opt, $options);
         $rf = new \ReflectionClass("App\Models\\$model");
         $ins = $rf->getMethod('find')->invokeArgs(null, [$id, $index, $type, $options]);
         if (!$ins) {

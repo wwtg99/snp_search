@@ -16,7 +16,7 @@ class SearchController extends Controller
             $es = new Elasticsearch();
             $res = $es->simpleSearch($query, $page, $pageSize)->toArray();
         } else {
-            $res = [];
+            $res = ['error'=>'No search term'];
         }
         return response()->json($res);
     }

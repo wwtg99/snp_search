@@ -2,7 +2,7 @@
     <el-card class="box-card">
         <div slot="header" class="clearfix header">
             <span class="title">
-                <el-button type="text" @click="show_detail">{{ result._title }}</el-button>
+                <el-button type="text" @click="show_detail">{{ result._title }}</el-button> <i class="el-icon-information" @click="show_detail2"></i>
             </span>
             <span class="type" :class="result._type.toLowerCase()">{{ result._label }}</span>
         </div>
@@ -19,8 +19,9 @@
         },
         methods: {
             show_detail() {
-                //TODO
                 return window.open('/view/' + this.result._index + '/' + this.result._type + '/' + this.result._id);
+            },
+            show_detail2() {
                 const h = this.$createElement;
                 let msg = this.parseSource(this.result._source);
                 let links = this.parseLinks(this.result._link);
