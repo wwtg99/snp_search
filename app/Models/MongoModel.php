@@ -58,6 +58,12 @@ class MongoModel implements \ArrayAccess
     public static function find($id, $database = null, $collection = null, $options = [])
     {
         $manager = self::createManager();
+        if (isset($options['database'])) {
+            $database = $options['database'];
+        }
+        if (isset($options['collection'])) {
+            $collection = $options['collection'];
+        }
         if (!$database) {
             $database = config('database.mongodb.database');
         }

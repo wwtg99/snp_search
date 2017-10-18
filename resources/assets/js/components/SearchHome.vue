@@ -25,6 +25,13 @@
                 <search-list></search-list>
             </el-col>
         </el-row>
+        <el-row type="flex" justify="center" v-if="show_result" class="pagination-row">
+            <el-col :xs="22" :sm="20" :md="16" :lg="12">
+                <div class="center">
+                    <el-pagination small layout="prev, pager, next" :page-count="meta.last_page" :current-page.sync="meta.current_page" @current-change="changePage"></el-pagination>
+                </div>
+            </el-col>
+        </el-row>
     </div>
 </template>
 
@@ -40,16 +47,23 @@
         computed: {
             results() {
                 return this.$store.state.results
+            },
+            meta() {
+                return this.$store.state.meta
+            },
+            search_term() {
+                return this.$store.state.search_term;
             }
         },
         methods: {
-            search(term) {
+            search(term, page = 1) {
                 this.error = '';
                 this.loading = true;
                 this.show_result = false;
                 axios.get('/api/search', {
                     params: {
-                        term: term
+                        term: term,
+                        page: page
                     }
                 }).then(function (response) {
                     if (response.data) {
@@ -65,6 +79,9 @@
                 }.bind(this)).catch(function (error) {
                     this.error = error;
                 });
+            },
+            changePage(currentPage) {
+                this.search(this.search_term, currentPage);
             }
         }
     }
@@ -88,5 +105,12 @@
     }
     .result-row {
         padding: 20px 0;
+    }
+    .pagination-row {
+        padding: 20px 0;
+    }
+    .center {
+        text-align: center;
+        margin: 0 auto;
     }
 </style>

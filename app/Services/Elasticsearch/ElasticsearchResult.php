@@ -65,9 +65,9 @@ class ElasticsearchResult
     {
         $meta = [];
         if (isset($this->raw['hits'])) {
-            $meta['total'] = isset($this->raw['hits']['total']) ? $this->raw['hits']['total'] : 0;
-            $meta['current_page'] = $this->page;
-            $meta['per_page'] = $this->pageSize;
+            $meta['total'] = isset($this->raw['hits']['total']) ? (int)$this->raw['hits']['total'] : 0;
+            $meta['current_page'] = (int)$this->page;
+            $meta['per_page'] = (int)$this->pageSize;
             $meta['last_page'] = ceil(1.0 * $meta['total'] / $this->pageSize);
             $meta['from'] = ($this->page - 1) * $this->pageSize + 1;
             $meta['to'] = $meta['total'] > $this->pageSize ? $this->page * $this->pageSize : $meta['total'];

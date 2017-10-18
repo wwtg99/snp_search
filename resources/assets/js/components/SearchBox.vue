@@ -16,9 +16,9 @@
         },
         methods: {
             submit(e) {
-                if (this.txt_input == this.search_term) {
-                    return;
-                }
+//                if (this.txt_input == this.search_term) {
+//                    return;
+//                }
                 this.$store.commit('search_term', this.txt_input);
                 this.$emit('submit_search', this.txt_input);
             },
