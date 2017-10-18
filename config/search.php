@@ -43,7 +43,7 @@ return [
                 return $data['dbsnp'];
             },
             'abstract' => function ($data) {
-                return implode(' ', [$data['variation'], $data['gene'], $data['pathogenicity']]);
+                return implode(' ', [$data['variation'], '<i>', $data['gene'], '</i>', '<br>', $data['pathogenicity']]);
             }
         ],
         'pharmgkb' => [
@@ -52,7 +52,7 @@ return [
                 return $data['name'];
             },
             'abstract' => function ($data) {
-                return implode(' ', [$data['accessionId'], $data['gene'], $data['loci']]);
+                return implode(' ', [$data['accessionId'], '<i>', $data['gene'], '</i><br>', $data['loci'], '<b>(' . $data['levelOfEvidence']['term'] . ')</b>']);
             }
         ]
     ]

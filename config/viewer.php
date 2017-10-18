@@ -23,7 +23,7 @@ return [
             'model' => 'MongoModel',
             'view' => 'viewers.pharmgkb',
             'options' => [
-                'database' => 'gkb',
+                'database' => 'snp',
             ]
         ],
         'deafnessvdb' => [

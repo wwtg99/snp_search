@@ -6,7 +6,7 @@
             </span>
             <span class="type" :class="result._type.toLowerCase()">{{ result._label }}</span>
         </div>
-        <div class="content">{{ result._abstract }}</div>
+        <div class="content" v-html="result._abstract"></div>
     </el-card>
 </template>
 
@@ -106,7 +106,7 @@
         border-radius: 5px;
     }
     .content {
-        line-height: 0.6em;
+        line-height: 1.2em;
         font-size: 14px;
     }
     .flow {
