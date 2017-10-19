@@ -7,7 +7,7 @@ return [
             'model' => 'MongoModel',
             'view' => 'viewers.ensemble',
             'options' => [
-                'database' => 'snp',
+                'database' => 'testdb',
             ]
         ],
         'dbsnp' => [
@@ -15,7 +15,7 @@ return [
             'model' => 'MongoModel',
             'view' => 'viewers.dbsnp',
             'options' => [
-                'database' => 'snp',
+                'database' => 'testdb',
             ]
         ],
         'pharmgkb' => [
@@ -23,7 +23,7 @@ return [
             'model' => 'MongoModel',
             'view' => 'viewers.pharmgkb',
             'options' => [
-                'database' => 'snp',
+                'database' => 'testdb',
             ]
         ],
         'deafnessvdb' => [
@@ -31,7 +31,7 @@ return [
             'model' => 'MongoModel',
             'view' => 'viewers.deafnessvdb',
             'options' => [
-                'database' => 'snp',
+                'database' => 'testdb',
             ]
         ],
     ],

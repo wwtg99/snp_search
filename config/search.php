@@ -40,19 +40,19 @@ return [
         'deafnessvdb' => [
             'label' => 'DeafnessVariant',
             'title' => function ($data) {
-                return $data['dbsnp'];
+                return array_get($data, 'variation');
             },
             'abstract' => function ($data) {
-                return implode(' ', [$data['variation'], '<i>', $data['gene'], '</i>', '<br>', $data['pathogenicity']]);
+                return implode(' ', ['<b>', array_get($data, 'dbsnp', ''), '</b>', '<i>', array_get($data, 'gene', ''), '</i>', '<br>', array_get($data, 'pathogenicity', '')]);
             }
         ],
         'pharmgkb' => [
             'label' => 'PharmGKB',
             'title' => function ($data) {
-                return $data['name'];
+                return array_get($data, 'name');
             },
             'abstract' => function ($data) {
-                return implode(' ', [$data['accessionId'], '<i>', $data['gene'], '</i><br>', $data['loci'], '<b>(' . $data['levelOfEvidence']['term'] . ')</b>']);
+                return implode(' ', [array_get($data, 'accessionId', ''), '<i>', array_get($data, 'gene', ''), '</i>', '<b>(Level ' . array_get($data, 'levelOfEvidence.term', '') . ')</b>', '<br>', array_get($data, 'loci', '')]);
             }
         ]
     ]
