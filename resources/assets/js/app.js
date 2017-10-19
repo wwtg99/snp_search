@@ -29,6 +29,7 @@ Vue.component('search-list', require('./components/SearchList.vue'));
 Vue.component('search-result', require('./components/SearchResult.vue'));
 Vue.component('pharmgkb-view', require('./components/PharmgkbView.vue'));
 Vue.component('deafnessvdb-view', require('./components/DeafnessvdbView.vue'));
+Vue.component('my-variant-info', require('./components/MyVariantInfo.vue'));
 
 const store = new Vuex.Store({
     state: {

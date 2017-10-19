@@ -16,31 +16,41 @@ return [
         'dbsnp' => [
             'label' => 'dbSNP',
             'title' => function ($data) {
-                return $data['name'];
+                return array_get($data, 'name', '');
             },
             'abstract' => function ($data) {
-                return implode(' ', [$data['gene'], isset($data['allele_origin']) ? $data['allele_origin'] : '', isset($data['clinical_significance']) ? $data['clinical_significance'] : '']);
+                return implode(' ', [array_get($data, 'gene', ''), array_get($data, 'allele_origin', ''), array_get($data, 'clinical_significance', '')]);
             },
-            'link' => null,
+            'link' => function ($data) {
+                if (isset($data['name'])) {
+                    return ['name' => 'dbSNP', 'link'=>'https://www.ncbi.nlm.nih.gov/projects/SNP/snp_ref.cgi?rs=' . $data['name']];
+                } else {
+                    return null;
+                }
+            },
             'viewable' => null,
         ],
         'ensemble' => [
             'label' => 'Ensemble',
             'title' => function ($data) {
-                return $data['name'];
+                return array_get($data, 'name', '');
             },
             'abstract' => function ($data) {
-                return implode('',[$data['ancestral_allele'], '/', $data['minor_allele']]);
+                return implode('', [array_get($data, 'ancestral_allele', ''), '/', array_get($data, 'minor_allele', '')]);
             },
             'link' => function ($data) {
-                return ['name'=>'Ensemble', 'link'=>'http://www.ensembl.org/Homo_sapiens/Variation/Explore?db=core;v=' . $data['name'] . ';vdb=variation'];
+                if (isset($data['name'])) {
+                    return ['name' => 'Ensemble', 'link' => 'http://www.ensembl.org/Homo_sapiens/Variation/Explore?db=core;v=' . $data['name'] . ';vdb=variation'];
+                } else {
+                    return null;
+                }
             },
             'viewable' => null
         ],
         'deafnessvdb' => [
             'label' => 'DeafnessVariant',
             'title' => function ($data) {
-                return array_get($data, 'variation');
+                return array_get($data, 'variation', '');
             },
             'abstract' => function ($data) {
                 return implode(' ', ['<b>', array_get($data, 'dbsnp', ''), '</b>', '<i>', array_get($data, 'gene', ''), '</i>', '<br>', array_get($data, 'pathogenicity', '')]);

@@ -32,6 +32,9 @@
                 </div>
             </el-col>
         </el-row>
+        <div class="variant" v-if="show_result">
+            <my-variant-info :query="search_term" :fields="'dbsnp,gwassnps,snpedia,clinvar,wellderly,exac'"></my-variant-info>
+        </div>
     </div>
 </template>
 
@@ -112,5 +115,13 @@
     .center {
         text-align: center;
         margin: 0 auto;
+    }
+    .variant {
+        position: fixed;
+        top: 100px;
+        right: 10px;
+        width: 250px;
+        z-index: 1000;
+        overflow: auto;
     }
 </style>
