@@ -12,9 +12,10 @@
 */
 
 Route::view('/', 'home', ['title'=>'Home']);
-Route::view('/home', 'home', ['title'=>'Home']);
-Route::view('/search', 'home', ['title'=>'Home']);
+Route::view('/home', 'home', ['title'=>'Search']);
+Route::view('/search', 'home', ['title'=>'Search'])->name('search');
 Route::get('/view/{index}/{type}/{id}', 'ViewController@view');
+Route::view('/freq', 'freq', ['title'=>'SNP Frequency'])->name('freq');
 
 //Route::get('/a', function() {
 //    $d = \App\Models\MongoModel::find('rs587776435', 'testdb', 'ensemble');

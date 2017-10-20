@@ -1,17 +1,22 @@
 <template>
-    <el-input placeholder="Search" icon="search" v-model="txt_input" :on-icon-click="submit" @keyup.enter.native="submit" autofocus></el-input>
+    <el-input placeholder="Search" icon="search" v-model="search_term" :on-icon-click="submit" @keyup.enter.native="submit" autofocus></el-input>
 </template>
 
 <script>
     export default {
         data() {
             return {
-                txt_input: ''
+                
             }
         },
         computed: {
-            search_term() {
-                return this.$store.state.search_term;
+            search_term: {
+                get() {
+                    return this.$store.state.search_term;
+                },
+                set(value) {
+                    this.$store.commit('search_term', value);
+                }
             },
         },
         methods: {
@@ -19,8 +24,7 @@
 //                if (this.txt_input == this.search_term) {
 //                    return;
 //                }
-                this.$store.commit('search_term', this.txt_input);
-                this.$emit('submit_search', this.txt_input);
+                this.$emit('submit_search', this.search_term);
             },
         }
     }

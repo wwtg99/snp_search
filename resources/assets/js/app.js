@@ -1,6 +1,7 @@
 import Vuex from 'vuex'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
+import echarts from 'echarts'
 import style from '../css/app.css'
 
 /**
@@ -12,6 +13,8 @@ import style from '../css/app.css'
 require('./bootstrap');
 
 window.Vue = require('vue');
+
+Vue.prototype.$echarts = echarts 
 
 Vue.use(Vuex);
 Vue.use(ElementUI);
@@ -30,13 +33,16 @@ Vue.component('search-result', require('./components/SearchResult.vue'));
 Vue.component('pharmgkb-view', require('./components/PharmgkbView.vue'));
 Vue.component('deafnessvdb-view', require('./components/DeafnessvdbView.vue'));
 Vue.component('my-variant-info', require('./components/MyVariantInfo.vue'));
+Vue.component('kgfreq', require('./components/KgFreq.vue'));
+Vue.component('kgfreq-result', require('./components/KgFreqResult.vue'));
 
 const store = new Vuex.Store({
     state: {
         search_term: '',
         results: [],
         meta: [],
-        show_types: []
+        show_types: [],
+        kgfreq_results: {}
     },
     mutations: {
         search_term (state, term) {
@@ -57,6 +63,9 @@ const store = new Vuex.Store({
             if (index < state.results.length) {
                 state.results[index] = result;
             }
+        },
+        kgfreq_results (state, results) {
+            state.kgfreq_results = results;
         }
     }
 });

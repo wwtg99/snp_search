@@ -10,9 +10,9 @@ class ViewController extends Controller
     public function view($index, $type, $id, Request $request)
     {
         $options = $request->input('options', []);
-        if (is_numeric($id)) {
+//        if (is_numeric($id)) {
 //            $id = (float)$id;
-        }
+//        }
         $viewer = ViewFactory::getViewer($index, $type, $id, $options);
         if (!$viewer) {
             abort(404);

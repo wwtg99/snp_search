@@ -18,3 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::match(['GET', 'POST'], '/search', 'SearchController@search');
+Route::match(['GET', 'POST'], '/kgfreq', 'VariantController@kgFreq');
