@@ -2,7 +2,7 @@
     <div class="content">
         <el-row type="flex" justify="center" class="search-row">
             <el-col :xs="22" :sm="20" :md="16" :lg="12">
-                <img src="../../image/logo.jpg" class="logo">
+                <img src="../../image/logo.png" class="logo">
             </el-col>
         </el-row>
         <el-row type="flex" justify="center" class="search-row">

@@ -14,7 +14,7 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-Vue.prototype.$echarts = echarts 
+Vue.prototype.$echarts = echarts;
 
 Vue.use(Vuex);
 Vue.use(ElementUI);
