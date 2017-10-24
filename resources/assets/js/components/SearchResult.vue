@@ -21,7 +21,7 @@
         },
         methods: {
             show_detail() {
-                return window.open('/view/' + this.result._index + '/' + this.result._type + '/' + this.result._id);
+                return window.open('/snp/view/' + this.result._index + '/' + this.result._type + '/' + this.result._id);
             },
             show_detail2() {
                 const h = this.$createElement;

@@ -13,9 +13,9 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
-Route::match(['GET', 'POST'], '/search', 'SearchController@search');
-Route::match(['GET', 'POST'], '/kgfreq', 'VariantController@kgFreq');
+Route::match(['GET', 'POST'], '/snp/search', 'SearchController@search');
+Route::match(['GET', 'POST'], '/snp/freq', 'VariantController@kgFreq');

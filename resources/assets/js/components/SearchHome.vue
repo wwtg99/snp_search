@@ -63,7 +63,7 @@
                 this.error = '';
                 this.loading = true;
                 this.show_result = false;
-                axios.get('/api/search', {
+                axios.get('/api/snp/search', {
                     params: {
                         term: term,
                         page: page
@@ -80,8 +80,9 @@
                     }
                     this.loading = false;
                 }.bind(this)).catch(function (error) {
-                    this.error = error;
-                });
+                    this.error = 'Server Error!';
+                    this.loading = false;
+                }.bind(this));
             },
             changePage(currentPage) {
                 this.search(this.search_term, currentPage);

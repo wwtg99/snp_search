@@ -53,7 +53,7 @@
                 this.error = '';
                 this.loading = true;
                 this.show_result = false;
-                axios.post('/api/kgfreq', {
+                axios.post('/api/snp/freq', {
                     ids: term
                 }).then(function (response) {
                     if (response.data) {
@@ -66,8 +66,9 @@
                     }
                     this.loading = false;
                 }.bind(this)).catch(function (error) {
-                    this.error = error;
-                });
+                    this.error = 'Server Error!';
+                    this.loading = false;
+                }.bind(this));
             },
             example() {
                 let t = 'rs7412';
