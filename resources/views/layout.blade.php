@@ -14,21 +14,21 @@
     @show
 </head>
 <body>
-<header class="layout-header">
-@section('header')
-    @include('components.head')
-@show
-</header>
+{{--<header class="layout-header">--}}
+{{--@section('header')--}}
+    {{--@include('components.head')--}}
+{{--@show--}}
+{{--</header>--}}
 <div class="layout-center">
     @section('center')
 
     @show
 </div>
-<footer class="layout-footer">
-@section('foot')
-    @include('components.foot')
-@show
-</footer>
+{{--<footer class="layout-footer">--}}
+{{--@section('foot')--}}
+    {{--@include('components.foot')--}}
+{{--@show--}}
+{{--</footer>--}}
 <!-- Javascript -->
 @section('js')
     <script src="/js/app.js"></script>

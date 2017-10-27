@@ -158,6 +158,10 @@ class ElasticsearchResult
                     }
                 }
             }
+        } else {
+            //default view
+            $hit['_label'] = $hit['_type'];
+            $hit['_title'] = $hit['_id'];
         }
         return $hit;
     }

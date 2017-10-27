@@ -25,15 +25,17 @@ Vue.use(ElementUI);
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example', require('./components/Example.vue'));
+// Vue.component('example', require('./components/Example.vue'));
 Vue.component('searchbox', require('./components/SearchBox.vue'));
 Vue.component('search-home', require('./components/SearchHome.vue'));
+Vue.component('snp-search', require('./components/SnpSearch.vue'));
 Vue.component('search-list', require('./components/SearchList.vue'));
 Vue.component('search-result', require('./components/SearchResult.vue'));
 Vue.component('pharmgkb-view', require('./components/PharmgkbView.vue'));
 Vue.component('deafnessvdb-view', require('./components/DeafnessvdbView.vue'));
 Vue.component('my-variant-info', require('./components/MyVariantInfo.vue'));
 Vue.component('kgfreq', require('./components/KgFreq.vue'));
+Vue.component('freq-search', require('./components/FreqSearch.vue'));
 Vue.component('kgfreq-result', require('./components/KgFreqResult.vue'));
 
 const store = new Vuex.Store({

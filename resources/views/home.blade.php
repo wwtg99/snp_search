@@ -2,6 +2,6 @@
 
 @section('center')
     <div id="app">
-        <search-home></search-home>
+        <snp-search></snp-search>
     </div>
 @endsection

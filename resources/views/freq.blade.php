@@ -2,6 +2,6 @@
 
 @section('center')
     <div id="app">
-        <kgfreq></kgfreq>
+        <freq-search></freq-search>
     </div>
 @endsection
