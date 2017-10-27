@@ -16,6 +16,12 @@
                             <template slot="title">
                                 <label>ClinVar: </label> <a :href="'https://www.ncbi.nlm.nih.gov/clinvar/variation/' + item.clinvar.variant_id" target="_blank">{{ item.clinvar.rsid }}</a>
                             </template>
+                            <div v-if="item.clinvar.rcv" class="height-limit">
+                                <div v-for="rcv in item.clinvar.rcv">
+                                    <div><label>{{ rcv.accession }}</label> {{ rcv.clinical_significance }}</div>
+                                    <div>{{ rcv.review_status }}</div>
+                                </div>
+                            </div>
                         </el-collapse-item>
                         <el-collapse-item v-if="item.gwassnps">
                             <template slot="title">
