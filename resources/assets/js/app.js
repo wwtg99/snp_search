@@ -33,6 +33,8 @@ Vue.component('search-list', require('./components/SearchList.vue'));
 Vue.component('search-result', require('./components/SearchResult.vue'));
 Vue.component('pharmgkb-view', require('./components/PharmgkbView.vue'));
 Vue.component('deafnessvdb-view', require('./components/DeafnessvdbView.vue'));
+Vue.component('gwas-catelog-view', require('./components/GwasCatelogView.vue'));
+
 Vue.component('my-variant-info', require('./components/MyVariantInfo.vue'));
 Vue.component('kgfreq', require('./components/KgFreq.vue'));
 Vue.component('freq-search', require('./components/FreqSearch.vue'));

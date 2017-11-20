@@ -7,7 +7,8 @@ return [
             'model' => 'MongoModel',
             'view' => 'viewers.pharmgkb',
             'options' => [
-                'database' => 'testdb',
+                'database' => env('MONGO_DATABASE'),  //specify database
+                'id_type' => 'string',  //Mongodb id type, object_id for ObjectId, int for integer, default is string
             ]
         ],
         'deafnessvdb' => [
@@ -15,7 +16,16 @@ return [
             'model' => 'MongoModel',
             'view' => 'viewers.deafnessvdb',
             'options' => [
-                'database' => 'testdb',
+                'database' => env('MONGO_DATABASE'),
+            ]
+        ],
+        'gwas_catelog' => [
+            'title' => 'GWAS Catelog',
+            'model' => 'MongoModel',
+            'view' => 'viewers.gwas_catelog',
+            'options' => [
+                'database' => env('MONGO_DATABASE'),
+                'id_type' => 'object_id'
             ]
         ],
     ],

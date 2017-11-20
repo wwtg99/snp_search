@@ -133,4 +133,8 @@
         color: #ffffff;
         background: #497de3;
     }
+    .gwas_catelog {
+        color: #ffffff;
+        background: #398a96
+    }
 </style>

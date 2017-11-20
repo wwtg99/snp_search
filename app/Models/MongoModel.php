@@ -9,6 +9,7 @@
 namespace App\Models;
 
 
+use MongoDB\BSON\ObjectID;
 use MongoDB\Driver\Manager;
 use MongoDB\Driver\Query;
 
@@ -69,6 +70,15 @@ class MongoModel implements \ArrayAccess
         }
         if (!$collection) {
             $collection = config('database.mongodb.collection');
+        }
+        if (isset($options['id_type'])) {
+            if ($options['id_type'] == 'object_id') {
+                $id = new ObjectID($id);
+            } elseif ($options['id_type'] == 'int') {
+                $id = (int)$id;
+            } else {
+                $id = (string)$id;
+            }
         }
         $filter = ['_id'=>$id];
         $query = new Query($filter, $options);

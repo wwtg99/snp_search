@@ -64,6 +64,15 @@ return [
             'abstract' => function ($data) {
                 return implode(' ', [array_get($data, 'accessionId', ''), '<i>', array_get($data, 'gene', ''), '</i>', '<b>(Level ' . array_get($data, 'levelOfEvidence.term', '') . ')</b>', '<br>', array_get($data, 'loci', '')]);
             }
-        ]
+        ],
+        'gwas_catelog' => [
+            'label' => 'GWAS Catelog',
+            'title' => function ($data) {
+                return $data['snp_risk'];
+            },
+            'abstract' => function ($data) {
+                return "${data['region']} <b>${data['trait']}</b> p-value ${data['pvalue']} PMID ${data['pmid']}";
+            }
+        ],
     ]
 ];
