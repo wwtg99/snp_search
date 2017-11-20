@@ -14,7 +14,7 @@
         <el-row type="flex" justify="center" class="example-row" v-if="databases">
             <el-col :xs="22" :sm="20" :md="16" :lg="12">
                 <el-select v-model="database" placeholder="Select Database">
-                    <el-option :key="all" label="All" value="0">All</el-option>
+                    <el-option key="all" label="All" value="0">All</el-option>
                     <el-option v-for="item in databases" :key="item.key" :value="item.key" :label="item.label">{{ item.label }}</el-option>
                 </el-select>
             </el-col>
@@ -84,7 +84,7 @@
         },
         methods: {
             search(term = null, page = 1) {
-                if (!term) {
+                if (!term || typeof(term) != 'string') {
                     term = this.search_term;
                 }
                 this.error = '';
