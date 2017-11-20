@@ -27,7 +27,7 @@ Vue.use(ElementUI);
 
 // Vue.component('example', require('./components/Example.vue'));
 Vue.component('searchbox', require('./components/SearchBox.vue'));
-Vue.component('search-home', require('./components/SearchHome.vue'));
+// Vue.component('search-home', require('./components/SearchHome.vue'));
 Vue.component('snp-search', require('./components/SnpSearch.vue'));
 Vue.component('search-list', require('./components/SearchList.vue'));
 Vue.component('search-result', require('./components/SearchResult.vue'));

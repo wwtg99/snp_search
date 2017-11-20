@@ -4,6 +4,7 @@ return [
     'types' => [
 //        'dbsnp' => [  //type
 //            'label' => 'dbSNP',  //type label
+//            'index' => 'dbsnp',  //default search index
 //            'title' => function ($data) {  //title handler
 //                return $data['name'];
 //            },
@@ -12,9 +13,11 @@ return [
 //            },
 //            'link' => null,  //outter link
 //            'viewable' => null,  //fields to view on frontend
+//            'selectable' => false,  //whether to be selected by front end
 //        ],
         'dbsnp' => [
             'label' => 'dbSNP',
+            'index' => 'dbsnp',
             'title' => function ($data) {
                 return array_get($data, 'name', '');
             },
@@ -29,9 +32,11 @@ return [
                 }
             },
             'viewable' => null,
+            'selectable' => false,
         ],
         'ensemble' => [
             'label' => 'Ensemble',
+            'index' => 'ensemble',
             'title' => function ($data) {
                 return array_get($data, 'name', '');
             },
@@ -45,34 +50,41 @@ return [
                     return null;
                 }
             },
-            'viewable' => null
+            'viewable' => null,
+            'selectable' => false,
         ],
         'deafnessvdb' => [
             'label' => 'DeafnessVariant',
+//            'index' => 'deafness',
             'title' => function ($data) {
                 return array_get($data, 'variation', '');
             },
             'abstract' => function ($data) {
                 return implode(' ', ['<b>', array_get($data, 'dbsnp', ''), '</b>', '<i>', array_get($data, 'gene', ''), '</i>', '<br>', array_get($data, 'pathogenicity', '')]);
-            }
+            },
+            'selectable' => true,
         ],
         'pharmgkb' => [
             'label' => 'PharmGKB',
+//            'index' => 'gkb',
             'title' => function ($data) {
                 return array_get($data, 'name');
             },
             'abstract' => function ($data) {
                 return implode(' ', [array_get($data, 'accessionId', ''), '<i>', array_get($data, 'gene', ''), '</i>', '<b>(Level ' . array_get($data, 'levelOfEvidence.term', '') . ')</b>', '<br>', array_get($data, 'loci', '')]);
-            }
+            },
+            'selectable' => true,
         ],
         'gwas_catelog' => [
             'label' => 'GWAS Catelog',
+            'index' => 'gwas_catelog',
             'title' => function ($data) {
                 return $data['snp_risk'];
             },
             'abstract' => function ($data) {
                 return "${data['region']} <b>${data['trait']}</b> p-value ${data['pvalue']} PMID ${data['pmid']}";
-            }
+            },
+            'selectable' => true,
         ],
     ]
 ];

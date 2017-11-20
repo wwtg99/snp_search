@@ -18,4 +18,5 @@ use Illuminate\Http\Request;
 //});
 
 Route::match(['GET', 'POST'], '/snp/search', 'SearchController@search');
+Route::get('/snp/databases', 'SearchController@databases');
 Route::match(['GET', 'POST'], '/snp/freq', 'VariantController@kgFreq');

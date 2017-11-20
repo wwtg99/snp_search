@@ -11,6 +11,14 @@
                 <el-input placeholder="Search" icon="search" v-model="search_term" :on-icon-click="search" @keyup.enter.native="search()" autofocus></el-input>
             </el-col>
         </el-row>
+        <el-row type="flex" justify="center" class="example-row" v-if="databases">
+            <el-col :xs="22" :sm="20" :md="16" :lg="12">
+                <el-select v-model="database" placeholder="Select Database">
+                    <el-option :key="all" label="All" value="0">All</el-option>
+                    <el-option v-for="item in databases" :key="item.key" :value="item.key" :label="item.label">{{ item.label }}</el-option>
+                </el-select>
+            </el-col>
+        </el-row>
         <el-row type="flex" justify="start" class="example-row">
             <el-col :xs="{'span': 12, 'offset': 1}" :sm="{'span': 12, 'offset': 2}" :md="{'span': 6, 'offset': 4}" :lg="{'span': 6, 'offset': 6}">
                 <p>Example: <el-button type="text" @click="example()">rs7412</el-button></p>
@@ -53,7 +61,9 @@
             return {
                 error: '',
                 show_result: false,
-                loading: false
+                loading: false,
+                databases: [],
+                database: ''
             }
         },
         computed: {
@@ -80,10 +90,12 @@
                 this.error = '';
                 this.loading = true;
                 this.show_result = false;
+                let database = this.database ? this.database : undefined;
                 axios.get('/api/snp/search', {
                     params: {
                         term: term,
-                        page: page
+                        page: page,
+                        database: database
                     }
                 }).then(function (response) {
                     if (response.data) {
@@ -110,7 +122,20 @@
             },
             redirect(url) {
                 window.location.href = url;
+            },
+            getDatabases()
+            {
+                axios.get('/api/snp/databases').then(function (response) {
+                    if (response.data) {
+                        this.databases = response.data;
+                    }
+                }.bind(this)).catch(function (error) {
+
+                }.bind(this));
             }
+        },
+        created() {
+            this.getDatabases();
         }
     }
 </script>
