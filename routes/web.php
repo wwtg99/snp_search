@@ -11,9 +11,9 @@
 |
 */
 
-Route::view('/', 'home', ['title'=>'Home']);
-Route::view('/snp', 'home', ['title'=>'Search']);
-Route::view('/snp/search', 'home', ['title'=>'Search'])->name('search');
+Route::view('/', 'home', ['title'=>'SNP Search']);
+Route::view('/snp', 'home', ['title'=>'SNP Search']);
+Route::view('/snp/search', 'home', ['title'=>'SNP Search'])->name('search');
 Route::get('/snp/view/{index}/{type}/{id}', 'ViewController@view');
 Route::view('/snp/freq', 'freq', ['title'=>'SNP Frequency'])->name('freq');
 

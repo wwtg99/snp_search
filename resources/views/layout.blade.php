@@ -10,7 +10,7 @@
 
     <!-- Styles -->
     @section('css')
-        <link rel="stylesheet" type="text/css" href="/css/app.css">
+        {{--<link rel="stylesheet" type="text/css" href="/css/app.css">--}}
     @show
 </head>
 <body>
@@ -31,7 +31,7 @@
 {{--</footer>--}}
 <!-- Javascript -->
 @section('js')
-    <script src="/js/app.js"></script>
+    <script src="/assets/snp/js/app.js"></script>
 @show
 </body>
 </html>
