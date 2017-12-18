@@ -1,7 +1,7 @@
 <template>
     <div class="content">
         <div class="bgpic">
-            <img src="/assets/snp/images/bg1.jpg">
+            <img src="/assets/snp/images/bg.jpg">
             <div class="header_wrapper">
                 <h1>SNP Search</h1>
             </div>
